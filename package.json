@@ -1,19 +1,41 @@
 {
   "name": "border-progress-bar",
-  "version": "0.1.2",
+  "version": "0.2.1",
+  "description": "Name is enough",
   "dependencies": {
-    "react": "*"
+    "react": "*",
+    "react-dom":"*"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "main": "dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npx tsup",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohali4/border-progress-bar.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "npm",
+    "border",
+    "progress bar"
+  ],
+  "author": "mohali4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohali4/border-progress-bar/issues"
+  },
+  "homepage": "https://github.com/mohali4/border-progress-bar",
+  "devDependencies": {
+    "@swc/core": "^1.4.0",
+    "tsup": "^8.0.1"
   }
 }

@@ -29,9 +29,10 @@ export interface borderProps {
     bgColor:string,
     noneColor:string,
     startFrom?:'t'|'tr'|'r'|'br'|'b'|'bl'|'l'|'tl',
-    move:'clockwise'|'counter clockwise'
+    move?:'clockwise'|'counter clockwise',
 }
 
 export interface elementProps extends borderProps{
     children?:React.ReactNode
+    hidden?:boolean
 }

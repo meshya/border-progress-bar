@@ -1,4 +1,3 @@
-import BorderedElement from './src/index.tsx'
-module.exports = {
-    BorderProgressBar:BorderedElement
-}
+import BorderedElement from './src/index'
+const BorderProgressBar = BorderedElement
+export default BorderProgressBar

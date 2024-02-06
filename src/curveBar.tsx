@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import { circle, progressCircle, afterCircle, circleContainer, mover, barContainer } from "./styles.ts"
-import type { myCSS } from "./styles.tsx";
-import type { curveBarProps } from "./props.ts";
+import React from "react";
+import { circle, progressCircle, afterCircle, circleContainer, mover, barContainer } from "./styles"
+import type { myCSS } from "./styles";
+import type { curveBarProps } from "./props";
 
 const CurveBar:React.FC<curveBarProps> = ({size, percent, border, side, color, bgColor, noneColor, type, ...arg})=>{
     const getStyleVars = () => (

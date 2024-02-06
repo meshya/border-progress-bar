@@ -1,24 +1,31 @@
 import React from "react";
-import type { elementProps } from "./props.ts";
-import Border from "./border.tsx";
-import {  borderContainer, container, elementContainer, myCSS } from "./styles.ts";
+import type { elementProps } from "./props";
+import Border from "./border";
+import {  borderContainer, container, elementContainer, balancer, type myCSS } from "./styles";
 
 
-const BorderedElement:React.FC<elementProps> = ({children, ...borderProps})=>{
+const BorderedElement:React.FC<elementProps> = ({children, hidden, ...borderProps})=>{
     const getCSSvars:()=>myCSS = ()=>{
         return {
             '--width': `${borderProps.width}px`,
             '--height': `${borderProps.height}px`,
-            '--element-move': `translateX(${borderProps.border}px) translateY(${borderProps.border}px)`
+            '--cont-width': `${borderProps.width + borderProps.border*2}px`,
+            '--element-move': `translateX(${borderProps.border}px) translateY(${borderProps.border}px)`,
+            '--border':`${borderProps.border}`
         } as myCSS
     }
+    if (hidden){
+        return children
+    }
     return (
-        <div style={{...getCSSvars(),...container}}>
-            <div style={borderContainer}>
-                <Border {...borderProps} />
-            </div>
-            <div style={elementContainer}>
-                {children}
+        <div  style={{...getCSSvars(),...balancer}}>
+            <div  style={{...container}}>
+                <div style={borderContainer}>
+                    <Border {...borderProps} />
+                </div>
+                <div style={elementContainer}>
+                    {children}
+                </div>
             </div>
         </div>
     )

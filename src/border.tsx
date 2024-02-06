@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from "react"
-import CurveBar from "./curveBar.tsx"
-import LineBar from "./lineBar.tsx"
-import { myCSS } from "./styles.ts"
-import type { borderProps } from "./props.ts"
+import React from "react"
+import CurveBar from "./curveBar"
+import LineBar from "./lineBar"
+import type { borderProps } from "./props"
 
 const Border:React.FC<borderProps> = ({startFrom:type='tl', ...arg})=>{
     arg.rounded = arg.rounded || 0

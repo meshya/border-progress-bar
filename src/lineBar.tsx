@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {line, lineProgress, lineContainer, mover, barContainer, type myCSS} from './styles.ts'
-import type { lineBarProps } from "./props.ts";
+import React from "react";
+import {line, lineProgress, lineContainer, mover, barContainer, type myCSS} from './styles'
+import type { lineBarProps } from "./props";
 
 const LineBar:React.FC<lineBarProps> = (arg)=>{
     const getCSSVars:()=>myCSS = ()=>(
