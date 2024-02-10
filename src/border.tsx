@@ -5,6 +5,13 @@ import type { borderProps } from "./props"
 
 const Border:React.FC<borderProps> = ({startFrom:type='tl', ...arg})=>{
     arg.rounded = arg.rounded || 0
+    arg.border = arg.border || 5
+    arg.width = arg.width || 100
+    arg.height = arg.height || 100
+    arg.percent = arg.percent || 25
+    arg.color = arg.color || '#050'
+    arg.bgColor = arg.width || '#ff5'
+    arg.noneColor = arg.noneColor || '#fff'    
     const hls = arg.width + arg.border*2 - arg.rounded*2
     const vls = arg.height + arg.border*2 - arg.rounded*2
     const cs = (arg.rounded*3.14) / 2

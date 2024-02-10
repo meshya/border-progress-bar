@@ -1,6 +1,6 @@
 {
   "name": "border-progress-bar",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Name is enough",
   "dependencies": {
     "react": "*",
