@@ -4,14 +4,6 @@ import LineBar from "./lineBar"
 import type { borderProps } from "./props"
 
 const Border:React.FC<borderProps> = ({startFrom:type='tl', ...arg})=>{
-    arg.rounded = arg.rounded || 0
-    arg.border = arg.border || 5
-    arg.width = arg.width || 100
-    arg.height = arg.height || 100
-    arg.percent = arg.percent || 25
-    arg.color = arg.color || '#050'
-    arg.bgColor = arg.width || '#ff5'
-    arg.noneColor = arg.noneColor || '#fff'    
     const hls = arg.width + arg.border*2 - arg.rounded*2
     const vls = arg.height + arg.border*2 - arg.rounded*2
     const cs = (arg.rounded*3.14) / 2
@@ -33,22 +25,17 @@ const Border:React.FC<borderProps> = ({startFrom:type='tl', ...arg})=>{
         10:pob(vls/2),
         11:pob(cs)
     }
-    console.log(blocks)
     const getPercent:(n:number)=>number = (n)=>{
         const map:{[key:string]:number} = {'tl':0, 't':1, 'tr':3, 'r':4, 'br':6, 'b':7, 'bl':9, 'l':10}
         const n2i:(n:number)=>number = (n)=>(n - map[type] < 0 ? n - map[type] + 12 : n - map[type])
         const i2n:(i:number)=>number = (i)=>(i + map[type] > 11 ? i + map[type] - 12 : i + map[type])
         let percent:number = arg.percent
         const lessPercent:(p:number)=>void = (p)=>{percent = Math.max(0,percent-p)}
-        console.log('start calc', n)
         for(let i:number=0; i<n2i(n); i++){
             let bp:number = blocks[i2n(i)]
-            console.log(i, i2n(i), percent, bp)            
             lessPercent(bp)
-            console.log(percent)
         }
         let resault:number = (Math.min(percent, blocks[n]) / blocks[n]) * 100
-        console.log(n, n2i(n), percent)
         return resault
     }
 

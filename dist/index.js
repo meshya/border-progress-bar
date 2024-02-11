@@ -262,6 +262,13 @@ var Border = function(_param) {
         "startFrom"
     ]);
     arg.rounded = arg.rounded || 0;
+    arg.border = arg.border || 5;
+    arg.width = arg.width || 100;
+    arg.height = arg.height || 100;
+    arg.percent = arg.percent || 25;
+    arg.color = arg.color || "#050";
+    arg.bgColor = arg.width || "#ff5";
+    arg.noneColor = arg.noneColor || "#fff";
     var hls = arg.width + arg.border * 2 - arg.rounded * 2;
     var vls = arg.height + arg.border * 2 - arg.rounded * 2;
     var cs = arg.rounded * 3.14 / 2;

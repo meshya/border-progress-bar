@@ -92,7 +92,6 @@ export const container:myCSS = {
 
 export const balancer:myCSS = {
     ...container,
-    width:'100%',
     float:'none',
     display:'flex',
     justifyContent:'center',
