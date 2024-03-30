@@ -165,7 +165,6 @@ var container = {
     float: "left"
 };
 var balancer = _object_spread_props(_object_spread({}, container), {
-    width: "100%",
     float: "none",
     display: "flex",
     justifyContent: "center",
@@ -261,14 +260,6 @@ var Border = function(_param) {
     var tmp = _param.startFrom, type = tmp === void 0 ? "tl" : tmp, arg = _object_without_properties(_param, [
         "startFrom"
     ]);
-    arg.rounded = arg.rounded || 0;
-    arg.border = arg.border || 5;
-    arg.width = arg.width || 100;
-    arg.height = arg.height || 100;
-    arg.percent = arg.percent || 25;
-    arg.color = arg.color || "#050";
-    arg.bgColor = arg.width || "#ff5";
-    arg.noneColor = arg.noneColor || "#fff";
     var hls = arg.width + arg.border * 2 - arg.rounded * 2;
     var vls = arg.height + arg.border * 2 - arg.rounded * 2;
     var cs = arg.rounded * 3.14 / 2;
@@ -291,7 +282,6 @@ var Border = function(_param) {
         10: pob(vls / 2),
         11: pob(cs)
     };
-    console.log(blocks);
     var getPercent = function(n) {
         var map = {
             "tl": 0,
@@ -313,15 +303,11 @@ var Border = function(_param) {
         var lessPercent = function(p) {
             percent = Math.max(0, percent - p);
         };
-        console.log("start calc", n);
         for(var i = 0; i < n2i(n); i++){
             var bp = blocks[i2n(i)];
-            console.log(i, i2n(i), percent, bp);
             lessPercent(bp);
-            console.log(percent);
         }
         var resault = Math.min(percent, blocks[n]) / blocks[n] * 100;
-        console.log(n, n2i(n), percent);
         return resault;
     };
     var bothArg = {
@@ -401,6 +387,14 @@ var BorderedElement = function(_param) {
         "children",
         "hidden"
     ]);
+    borderProps.rounded = borderProps.rounded || 0;
+    borderProps.border = borderProps.border || 5;
+    borderProps.width = borderProps.width || 100;
+    borderProps.height = borderProps.height || 100;
+    borderProps.percent = borderProps.percent || 25;
+    borderProps.color = borderProps.color || "#050";
+    borderProps.bgColor = borderProps.bgColor || "#ff5";
+    borderProps.noneColor = borderProps.noneColor || "#fff";
     var getCSSvars = function() {
         return {
             "--width": "".concat(borderProps.width, "px"),

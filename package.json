@@ -1,6 +1,6 @@
 {
   "name": "border-progress-bar",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Name is enough",
   "dependencies": {
     "react": "*",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohali4/border-progress-bar.git"
+    "url": "git+https://github.com/meshya/border-progress-bar.git"
   },
   "keywords": [
     "typescript",
@@ -28,12 +28,12 @@
     "border",
     "progress bar"
   ],
-  "author": "mohali4",
+  "author": "meshya",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mohali4/border-progress-bar/issues"
+    "url": "https://github.com/meshya/border-progress-bar/issues"
   },
-  "homepage": "https://github.com/mohali4/border-progress-bar",
+  "homepage": "https://github.com/meshya/border-progress-bar",
   "devDependencies": {
     "@swc/core": "^1.4.0",
     "tsup": "^8.0.1"

@@ -83,7 +83,6 @@ var container = {
 };
 var balancer = {
   ...container,
-  width: "100%",
   float: "none",
   display: "flex",
   justifyContent: "center",
@@ -129,14 +128,6 @@ var lineBar_default = LineBar;
 
 // src/border.tsx
 var Border = ({ startFrom: type = "tl", ...arg }) => {
-  arg.rounded = arg.rounded || 0;
-  arg.border = arg.border || 5;
-  arg.width = arg.width || 100;
-  arg.height = arg.height || 100;
-  arg.percent = arg.percent || 25;
-  arg.color = arg.color || "#050";
-  arg.bgColor = arg.width || "#ff5";
-  arg.noneColor = arg.noneColor || "#fff";
   const hls = arg.width + arg.border * 2 - arg.rounded * 2;
   const vls = arg.height + arg.border * 2 - arg.rounded * 2;
   const cs = arg.rounded * 3.14 / 2;
@@ -157,7 +148,6 @@ var Border = ({ startFrom: type = "tl", ...arg }) => {
     10: pob(vls / 2),
     11: pob(cs)
   };
-  console.log(blocks);
   const getPercent = (n) => {
     const map = { "tl": 0, "t": 1, "tr": 3, "r": 4, "br": 6, "b": 7, "bl": 9, "l": 10 };
     const n2i = (n2) => n2 - map[type] < 0 ? n2 - map[type] + 12 : n2 - map[type];
@@ -166,15 +156,11 @@ var Border = ({ startFrom: type = "tl", ...arg }) => {
     const lessPercent = (p) => {
       percent = Math.max(0, percent - p);
     };
-    console.log("start calc", n);
     for (let i = 0; i < n2i(n); i++) {
       let bp = blocks[i2n(i)];
-      console.log(i, i2n(i), percent, bp);
       lessPercent(bp);
-      console.log(percent);
     }
     let resault = Math.min(percent, blocks[n]) / blocks[n] * 100;
-    console.log(n, n2i(n), percent);
     return resault;
   };
   let bothArg = {
@@ -196,6 +182,14 @@ var border_default = Border;
 
 // src/index.tsx
 var BorderedElement = ({ children, hidden, ...borderProps }) => {
+  borderProps.rounded = borderProps.rounded || 0;
+  borderProps.border = borderProps.border || 5;
+  borderProps.width = borderProps.width || 100;
+  borderProps.height = borderProps.height || 100;
+  borderProps.percent = borderProps.percent || 25;
+  borderProps.color = borderProps.color || "#050";
+  borderProps.bgColor = borderProps.bgColor || "#ff5";
+  borderProps.noneColor = borderProps.noneColor || "#fff";
   const getCSSvars = () => {
     return {
       "--width": `${borderProps.width}px`,
